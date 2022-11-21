@@ -1,0 +1,33 @@
+@forward "./scss/reset";
+@forward "./scss/cards";
+@forward "./scss/navbar";
+@forward "./scss/table";
+
+html{scroll-behavior: smooth;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+body{
+    height: 100%;
+    width: 100vw;
+    overflow-x: hidden;
+}   
+
+.container{
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+    flex-direction: column;
+}
+
+.mt{
+    margin: 8rem;
+}
+
+.mx-auto{
+    margin: 0 auto;
+}
+
+.vh{
+    visibility: hidden;
+}

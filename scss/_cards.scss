@@ -1,0 +1,99 @@
+@use "./mixins" as *;
+
+.card-wrapper{
+    display: flex;
+    flex-direction: column;  
+    justify-content: center;
+    align-items: center;
+
+    @include bigger-than(md){
+        flex-direction: row;
+        flex-wrap: wrap;
+        max-width: 60%;
+        margin: 0 auto;
+    }
+    @include bigger-than(lg){
+        max-width: 90%;
+    }
+
+}
+
+.card{
+    margin: 1rem;
+    display: flex;
+    max-width: 350px;
+    flex: 1;
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+    &__img{
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1rem;
+        &__desc{
+            text-align: center;
+            color: rgb(31, 72, 255);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        img{
+            max-width: 200px;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+    &__price{
+        display: flex;
+        margin-bottom: 1rem;
+        color: #000;
+        justify-content: center;
+        &::before{
+            display: block;
+            content: "$";
+            font-weight: 1000;
+            font-size: 1.5rem;
+        }
+        &::after{
+            display: flex;
+            align-items: center;
+            content: "/mo";
+            padding-left: 1rem;
+        }
+    }
+    &__desc p{
+        padding: 0.5rem 1rem;
+        &::before{
+            content: "";
+            height: 2px;
+            width: 7px;
+            border-left: 2px solid rgb(0, 124, 0);
+            border-bottom: 2px solid rgb(0, 124, 0);
+            padding: 2px;
+            transform: rotate(-45deg) translate(-16px, -10px);
+            position: absolute;
+        }
+    }
+    &__btn{
+        display: flex;
+        justify-content: center;
+        padding: 1rem 0.5rem 0.5rem 0.5rem;
+        &__el{
+            width: 100%;
+            background-color: rgb(31, 72, 255);
+            border: none;
+            border-radius: 5px;
+            padding: 1rem;
+            font-weight: 600;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            &:hover{
+                background-color: rgb(21, 37, 105);
+            }
+            &--black{
+                background-color: #000;
+            }
+        }
+    }
+}
