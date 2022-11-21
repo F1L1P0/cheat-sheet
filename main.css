@@ -140,27 +140,36 @@
   justify-content: center;
 }
 .table__row {
-  min-width: 50px;
+  min-width: 60px;
 }
 .table__row__top {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
 .table p {
-  padding: 1rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.2rem 0.2rem;
   border: 1px solid rgb(218, 218, 218);
   margin-top: -1px;
   margin-left: -1px;
-  text-align: start;
   height: 55px;
 }
-.table__desc p {
-  padding: 1rem 2rem;
-  text-align: start;
+@media (min-width: 576px) {
+  .table p {
+    padding: 0.5rem;
+  }
 }
 .table__separator p {
+  display: none;
   width: 1rem;
-  padding: 0;
+  padding: 0rem;
+}
+@media (min-width: 767px) {
+  .table__separator p {
+    display: block;
+  }
 }
 .table__separator p:first-child {
   border-style: none;
@@ -172,6 +181,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  margin: 2rem;
 }
 .table__btns {
   display: flex;
@@ -202,22 +212,6 @@
   padding-left: 0;
 }
 
-.radius-t-l {
-  border-top-left-radius: 5px;
-}
-
-.radius-b-l {
-  border-bottom-left-radius: 5px;
-}
-
-.radius-t-r {
-  border-top-right-radius: 5px;
-}
-
-.radius-b-r {
-  border-bottom-right-radius: 5px;
-}
-
 html {
   scroll-behavior: smooth;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
@@ -225,8 +219,22 @@ html {
 
 body {
   height: 100%;
-  width: 100vw;
-  overflow-x: hidden;
+  width: 100%;
+  overflow-X: hidden;
+}
+
+body {
+  font-size: 10px;
+}
+@media (min-width: 992px) {
+  body {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1200px) {
+  body {
+    font-size: 16px;
+  }
 }
 
 .container {
@@ -246,4 +254,27 @@ body {
 
 .vh {
   visibility: hidden;
+}
+
+.radius-t-l {
+  border-top-left-radius: 5px;
+}
+
+.radius-b-l {
+  border-bottom-left-radius: 5px;
+}
+
+.radius-t-r {
+  border-top-right-radius: 5px;
+}
+
+.radius-b-r {
+  border-bottom-right-radius: 5px;
+}
+
+.text-left {
+  text-align: left !important;
+  display: flex !important;
+  justify-content: flex-start !important;
+  align-items: center !important;
 }/*# sourceMappingURL=main.css.map */

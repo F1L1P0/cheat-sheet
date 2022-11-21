@@ -1,29 +1,36 @@
+@use "../scss/mixins"  as *;
+
 .table{
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
     &__row{
-        min-width: 50px;
+        min-width: 60px;
         &__top{
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
         }
         }
-        p{
-            padding: 1rem 2rem;
-            border: 1px solid rgb(218, 218, 218);
-            margin-top: -1px;
-            margin-left: -1px;
-            text-align: start;
-            height: 55px;
+    p{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0.2rem 0.2rem;
+        border: 1px solid rgb(218, 218, 218);
+        margin-top: -1px;
+        margin-left: -1px;
+        height: 55px;
+        @include bigger-than(xs){
+            padding: .5rem;
         }
-        &__desc p{
-            padding: 1rem 2rem;
-            text-align: start;
         }
         &__separator p{
+            display: none;
             width: 1rem;
-            padding: 0;
+            padding: 0rem;
+            @include bigger-than(sm){
+                display: block;
+            }
             &:first-child{
                 border-style: none;
 
@@ -36,6 +43,8 @@
             display: flex;
             align-items: center;
             flex-direction: column;
+            margin: 2rem;
+
         }
         &__btns{
             display: flex;
@@ -68,15 +77,3 @@
         }
     }
     
-.radius-t-l{
-    border-top-left-radius: 5px;
-}
-.radius-b-l{
-    border-bottom-left-radius: 5px;
-}
-.radius-t-r{
-    border-top-right-radius: 5px;
-}
-.radius-b-r{
-    border-bottom-right-radius: 5px;
-}
