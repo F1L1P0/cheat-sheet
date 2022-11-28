@@ -4,13 +4,13 @@ let obj1={"jedna" : 1, "dva" : 2, 3 : "ja jsem 3"};
 let obj2={"jedna":1, "dva":2, "tri":3, ctyripet:[4,5]};
 let obj3={"jedna" : 1, "dva" : 2, "tri" : 3};
 
-const items = [
-    {name:"bike", price:100},
-    {name:"tv", price:300},
-    {name:"pc", price:200},
-    {name:"phone", price:400},
-    {name:"album", price:20},
-]
+// const items = [
+//     {name:"bike", price:100},
+//     {name:"tv", price:300},
+//     {name:"pc", price:200},
+//     {name:"phone", price:400},
+//     {name:"album", price:20},
+// ]
 //                                                  fors
 //------------------------------------------------------------------------------------------------------------
 // for (let x of arr2){
@@ -120,3 +120,40 @@ const items = [
 // } catch (err) {
 //     console.error(err);
 // }
+
+//          API QUOTE GENERATOR (100ITEMS API RETURN MORE ARRAYS EACH 100)
+const nextQuote = async ()=>{
+  let randomNum = Math.floor(Math.random() * 100);
+  let quotes = await fetch("https://type.fit/api/quotes");
+  let quote= await quotes.json();
+  let myQuote= quote[randomNum];
+  document.querySelector("#quote-txt").innerText = "“"+ myQuote.text + "”";
+  document.querySelector("#quote-author").innerText = myQuote.author;
+  return myQuote;
+}
+
+try {
+  nextQuote();
+} catch (err) {
+    console.error(err);
+}
+
+//          ACCORDION
+const accordion = document.getElementsByClassName("content-container");
+const que = document.getElementsByClassName("question");
+const ans = document.getElementsByClassName("answer");
+
+window.addEventListener("click", function(e){
+  if(e.target!==que || e.target!==ans){
+    console.log(e.target);
+    for(let i = 0; i < accordion.length; i++){
+      accordion[i].classList.remove("active");
+    }
+  }
+//            IF CLICKED OUTSIDE OF THE ELEMENT CLOSE ACCORDION
+  if(e.target!==que){
+    console.log(e.target);
+    e.target.parentElement.classList.add("active");
+  }
+});
+

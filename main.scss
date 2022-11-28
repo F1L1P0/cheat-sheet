@@ -1,7 +1,8 @@
 @forward "./scss/reset";
 @forward "./scss/cards";
 @forward "./scss/navbar";
-@forward "./scss/table";
+@forward "./scss/quotes";
+@forward "./scss/accordion";
 @use "./scss/mixins" as *;
 
 html{scroll-behavior: smooth;
