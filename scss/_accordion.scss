@@ -37,8 +37,6 @@
 
 .accordion .content-container.active{
     .question{
-        font-size: 1.2rem;
-        transition: .5s;
         &::after{
             content: "-";
             font-size: 2rem;

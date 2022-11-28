@@ -191,10 +191,6 @@
   transition: all 0.5s;
 }
 
-.accordion .content-container.active .question {
-  font-size: 1.2rem;
-  transition: 0.5s;
-}
 .accordion .content-container.active .question::after {
   content: "-";
   font-size: 2rem;

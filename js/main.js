@@ -139,21 +139,20 @@ try {
 }
 
 //          ACCORDION
-const accordion = document.getElementsByClassName("content-container");
-const que = document.getElementsByClassName("question");
-const ans = document.getElementsByClassName("answer");
+const accordion = document.querySelectorAll(".content-container");
 
-window.addEventListener("click", function(e){
-  if(e.target!==que || e.target!==ans){
-    console.log(e.target);
-    for(let i = 0; i < accordion.length; i++){
-      accordion[i].classList.remove("active");
-    }
-  }
-//            IF CLICKED OUTSIDE OF THE ELEMENT CLOSE ACCORDION
-  if(e.target!==que){
-    console.log(e.target);
-    e.target.parentElement.classList.add("active");
-  }
-});
+for(let i=0;i<accordion.length;i++){
+  accordion[i].addEventListener("click", function (){
+   if(this.classList.contains("active")){
+      accordion.forEach((panel)=>panel.classList.remove("active"));
+      this.classList.remove("active");
+   }else{
+      accordion.forEach((panel)=>panel.classList.remove("active"));
+      this.classList.add("active");
+   }
+  })
+}
+
+
+
 
