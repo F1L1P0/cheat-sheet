@@ -2,7 +2,9 @@
 @forward "./scss/cards";
 @forward "./scss/navbar";
 @forward "./scss/quotes";
+@forward "./scss/table";
 @forward "./scss/accordion";
+@forward "./scss/survey";
 @use "./scss/mixins" as *;
 
 html{scroll-behavior: smooth;

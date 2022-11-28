@@ -146,16 +146,30 @@ accordion.onclick = ({target: elmAcc}) =>{
   if (!elmAcc.matches('.content-container > div.question')) return // select only this div
 
   let elContainer = elmAcc.closest('.content-container')
-  console.log(elContainer);
 
 
   if (elContainer.classList.toggle('active'))
     accordionEl.forEach( panel => panel.classList.toggle('active', panel===elContainer))
   }
 
-  // clicking outside will close accordion :
+  // if clicked outside of the accrodion all panels close
 document.addEventListener('click', event =>
 {
 if (!accordion.contains(event.target)) 
   accordionEl.forEach( panel => panel.classList.remove('active'))
 });
+
+//SURVEY
+let surveyEl = document.querySelectorAll(".survey__body");
+let survey_btn = document.querySelector("#survey-next-btn");
+let questionNum = 0;
+survey_btn.addEventListener("click", ()=> {
+  let progressBar= document.querySelector("#bar");
+  let progress = progressBar.getAttribute("data-percent");
+  let progressNum = parseInt(progress);
+  progressBar.setAttribute("data-percent", progressNum+=10);
+  surveyEl[questionNum].classList.toggle("isVisible");
+  questionNum++;
+  surveyEl[questionNum].classList.toggle("isVisible");
+  console.log(questionNum);
+})

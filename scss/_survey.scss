@@ -1,0 +1,71 @@
+$skills-max-width: 15rem;
+
+.survey-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+
+}
+
+.survey{
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(110, 110, 110);
+    margin: auto;
+    padding: 1rem;
+    border-radius: 20px;
+    &__bar {
+        border: 1px solid silver;
+        border-radius: 1em;
+        background: #eee;
+        width: 100%;
+        margin: 1rem auto;
+        max-width: $skills-max-width;
+        overflow: hidden;
+  
+  > div {
+    padding: 1rem .5rem;
+    border-radius: 1em;
+    text-align: right;
+    background-color: rgb(79, 79, 255);
+    color: black;
+    transition: all .5s;
+    width: 0%;
+
+    
+        @for $i from 1 through 10 {
+        &[data-percent="#{$i}0"] {
+            width: $i * 10%;
+         }
+        }
+        } 
+    }
+    &__questions{
+        margin: 1rem 0;
+
+    }
+    &__answers {
+        display: flex;
+        flex-direction: column;
+        margin: 1rem 0;
+        input{
+            text-decoration: none;
+            padding: 1rem;
+            &:visited{
+                color: #000;
+            }
+        }
+    }
+    &__body{
+        display: none;
+        &.isVisible{
+            display: block;
+        }
+    }
+}
+
+#survey-next-btn{
+    padding: 0.5rem 1.5rem;
+}
