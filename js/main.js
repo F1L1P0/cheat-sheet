@@ -139,20 +139,23 @@ try {
 }
 
 //          ACCORDION
-const accordion = document.querySelectorAll(".content-container");
+  let accordion   = document.querySelector('.accordion');
+  let accordionEl = accordion.querySelectorAll('.content-container');
+  
+accordion.onclick = ({target: elmAcc}) =>{
+  if (!elmAcc.matches('.content-container > div.question')) return // select only this div
 
-for(let i=0;i<accordion.length;i++){
-  accordion[i].addEventListener("click", function (){
-   if(this.classList.contains("active")){
-      accordion.forEach((panel)=>panel.classList.remove("active"));
-      this.classList.remove("active");
-   }else{
-      accordion.forEach((panel)=>panel.classList.remove("active"));
-      this.classList.add("active");
-   }
-  })
-}
+  let elContainer = elmAcc.closest('.content-container')
+  console.log(elContainer);
 
 
+  if (elContainer.classList.toggle('active'))
+    accordionEl.forEach( panel => panel.classList.toggle('active', panel===elContainer))
+  }
 
-
+  // clicking outside will close accordion :
+document.addEventListener('click', event =>
+{
+if (!accordion.contains(event.target)) 
+  accordionEl.forEach( panel => panel.classList.remove('active'))
+});
