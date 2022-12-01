@@ -5,6 +5,7 @@
 @forward "./scss/table";
 @forward "./scss/accordion";
 @forward "./scss/survey";
+@forward "./scss/carousel";
 @use "./scss/mixins" as *;
 
 html{scroll-behavior: smooth;
