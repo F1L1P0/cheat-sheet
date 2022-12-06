@@ -121,14 +121,16 @@ let obj3={"jedna" : 1, "dva" : 2, "tri" : 3};
 //     console.error(err);
 // }
 
+
 //          API QUOTE GENERATOR (100ITEMS API RETURN MORE ARRAYS EACH 100)
 const nextQuote = async ()=>{
-  let randomNum = Math.floor(Math.random() * 100);
+  let randomNum = Math.floor(Math.random() * 1000);
   let quotes = await fetch("https://type.fit/api/quotes");
   let quote= await quotes.json();
   let myQuote= quote[randomNum];
   document.querySelector("#quote-txt").innerText = "“"+ myQuote.text + "”";
-  document.querySelector("#quote-author").innerText = myQuote.author;
+  console.log(myQuote)
+  document.querySelector("#quote-author").innerText = myQuote.author ?? "Author is uknown";
   return myQuote;
 }
 
@@ -146,7 +148,6 @@ accordion.onclick = ({target: elmAcc}) =>{
   if (!elmAcc.matches('.content-container > div.question')) return // select only this div
 
   let elContainer = elmAcc.closest('.content-container')
-
 
   if (elContainer.classList.toggle('active'))
     accordionEl.forEach( panel => panel.classList.toggle('active', panel===elContainer))
